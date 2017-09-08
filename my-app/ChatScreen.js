@@ -1,22 +1,21 @@
 import React from 'react';
 import {
-  AppRegistry,
   Text,
   View,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 
 export default class ChatScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Chat with Lucy',
-  };
-  render() {
-    return (
-	<View>
-        <Text>Chat with Lucy</Text>
-      </View>
-    );
-  }
+	 static navigationOptions = ({ navigation }) => ({
+		title: `Create a note with ${navigation.state.params.user}`,
+	  });
+	  render() {
+		const { params } = this.props.navigation.state;
+		return (
+		<View>
+			<Text>{params.user} will help you create a note</Text>
+		  </View>
+		);
+	  }
 }
 
 //AppRegistry.registerComponent('Chat', () => ChatScreen);
