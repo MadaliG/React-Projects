@@ -2,6 +2,7 @@ import React from 'react';
 import {
   AppRegistry,
   Text,
+  View,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
@@ -11,9 +12,11 @@ export default class ChatScreen extends React.Component {
   };
   render() {
     return (
-      <View>
+	<View>
         <Text>Chat with Lucy</Text>
       </View>
     );
   }
 }
+
+//AppRegistry.registerComponent('Chat', () => ChatScreen);
