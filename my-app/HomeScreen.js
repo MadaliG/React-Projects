@@ -6,6 +6,7 @@ import {
   Text,
 } from 'react-native';
 import SimpleButton from './SimpleButton';
+import NoteList from './NoteList';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = (({ navigation }) => ({
@@ -14,10 +15,11 @@ export default class HomeScreen extends React.Component {
     
   render() {
   return (
-     <View style={styles.container}>
-        <Text>Hello, Notes App!</Text>
-        <SimpleButton navigation={this.props.navigation}/>
-      </View>
+	<View style={styles.container}>
+		<NoteList/>
+		<Text>Hello, Notes App!</Text>
+		<SimpleButton navigation={this.props.navigation} style={styles.simpleButton}/>
+	</View>
     );
   }
 }
@@ -27,10 +29,12 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+	flex: 1,
+	justifyContent: 'center',
+	alignItems: 'center',
+	marginTop: 60
   }
 });
+
+
 

@@ -44,5 +44,3 @@ var styles = StyleSheet.create({
 		height: 40
 	}
 });
-
-//AppRegistry.registerComponent('Chat', () => ChatScreen);

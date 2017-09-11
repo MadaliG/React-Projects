@@ -1,7 +1,8 @@
 import {
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  StyleSheet
 } from 'react-native';
 
 import React from 'react';
@@ -13,8 +14,8 @@ export default class SimpleButton extends React.Component{
 
 		return (
 			<TouchableOpacity onPress={()=> navigate('Note', { user: 'Mark' })}>
-				<View>
-					<Text>{this.props.customText || 'Create a note!'}</Text>
+				<View style={styles.simpleButton}>
+					<Text style={styles.simpleButtonText}>{'Create a note!'}</Text>
 				</View>
 			</TouchableOpacity>
 		);
@@ -26,3 +27,27 @@ export default class SimpleButton extends React.Component{
 	customText: 'HELLO kitty!'
 };
 */
+
+const styles = StyleSheet.create({
+	simpleButton: {
+		backgroundColor: '#5B29C1',
+		paddingHorizontal: 20,
+		paddingVertical: 15,
+		shadowColor: 'darkgrey',
+		shadowOffset: {
+			width: 1,
+			height: 1
+		},
+		borderColor: '#48209A',
+		borderWidth: 1,
+		borderRadius: 4,
+		shadowOpacity: 0.8,
+		shadowRadius: 1,
+	},
+	simpleButtonText: {
+		color: 'white',
+		fontWeight: 'bold',
+		fontSize: 16
+	}
+});
+
