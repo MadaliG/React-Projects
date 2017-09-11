@@ -5,6 +5,7 @@ import {
   Button,
   Text,
 } from 'react-native';
+import SimpleButton from './SimpleButton';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = (({ navigation }) => ({
@@ -12,14 +13,10 @@ export default class HomeScreen extends React.Component {
   }));
     
   render() {
-  const {navigate} = this.props.navigation; 
   return (
      <View style={styles.container}>
         <Text>Hello, Notes App!</Text>
-        <Button
-          onPress={()=> navigate('Note', { user: 'Mark' })}
-          title="Create a note!"
-        />
+        <SimpleButton navigation={this.props.navigation}/>
       </View>
     );
   }
