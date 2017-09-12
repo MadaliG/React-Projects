@@ -30,8 +30,12 @@ export default class SimpleButton extends React.Component{
 
 const styles = StyleSheet.create({
 	simpleButton: {
+		flex: 1,
+		margin:20,
+		justifyContent: 'center',
+		alignItems: 'center',
 		backgroundColor: '#5B29C1',
-		paddingHorizontal: 20,
+		paddingHorizontal: 10,
 		paddingVertical: 15,
 		shadowColor: 'darkgrey',
 		shadowOffset: {

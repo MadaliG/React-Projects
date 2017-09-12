@@ -15,10 +15,14 @@ export default class HomeScreen extends React.Component {
     
   render() {
   return (
-	<View style={styles.container}>
-		<NoteList/>
+	<View>
+		<NoteList navigation={this.props.navigation}/>
+		<View style={styles.container}>
 		<Text>Hello, Notes App!</Text>
-		<SimpleButton navigation={this.props.navigation} style={styles.simpleButton}/>
+		
+		</View>
+		<SimpleButton navigation={this.props.navigation}/>
+	
 	</View>
     );
   }
@@ -32,8 +36,9 @@ const styles = StyleSheet.create({
 	flex: 1,
 	justifyContent: 'center',
 	alignItems: 'center',
-	marginTop: 60
-  }
+	marginTop: 20
+  },
+
 });
 
 

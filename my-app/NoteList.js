@@ -1,51 +1,69 @@
-import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ListView
-} from 'react-native';
+import React, { Component } from 'react';
+import { TouchableOpacity, ScrollView, Image, Text, StyleSheet, View } from 'react-native';
 
-export default class NoteList extends React.Component {
-   constructor (props) {
-   	super(props);
-   	this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+export default class NoteList extends Component {
+  state = {
+      notes: [
+         {
+            id: 0,
+            title: 'Ben',
+			note_body: 'Test 1'
+         },
+         {
+            id: 1,
+            title: 'Susan',
+			note_body: 'Test 2'
+         },
+         {
+            id: 2,
+            title: 'Robert',
+			note_body: 'Test 3'
+         },
+         {
+            id: 3,
+            title: 'Mary',
+			note_body: 'Test 4'
+         }
+      ]
    }
-	
+   alertItemName = (item) => {
+      alert(item.title)
+   }
    render() {
-   	
-   	return (
-   		<ListView
-			dataSource={
-				this.ds.cloneWithRows( [
-					{title:"Note 1", body:"Body 1", id:1},
-					{title:"Note 2", body:"Body 2", id:2}
-				])
-			}
-			renderRow={(rowData) => {
-				return (
-					<Text>{rowData.title}</Text>
-				)
-			}}
-   		renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-		/>
-   	)
+      return (
+         <View> 
+            {
+               this.state.notes.map((item, index) => (
+                  <TouchableOpacity
+                     key = {item.id}
+                     style = {styles.container}
+                     onPress = {() => this.alertItemName(item)}>
+                     
+                     <Text style = {styles.text}>
+                        {item.title}
+                     </Text>
+					 <View style = {styles.hr}></View>
+                  </TouchableOpacity>
+               ))
+            }
+         </View>
+      )
    }
 }
 
 const styles = StyleSheet.create({
-  /*
-   * Removed for brevity
-   */
    container: {
-    flex: 1,
-    padding: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
+      padding: 10,
+      marginTop: 3
    },
-  separator: {
-    flex: 1,
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E',
-  },
-});
+   text: {
+    padding: 10,
+    color: '#4f603c'
+   },
+   hr: {
+   borderBottomColor: '#5B29C1',
+    borderBottomWidth: 1,
+	marginTop: 3
+   }
+   
+})
