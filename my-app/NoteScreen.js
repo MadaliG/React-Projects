@@ -20,12 +20,14 @@ export default class ChatScreen extends React.Component {
 				placeholder="Untitled"
 				style={styles.title}
 				onEndEditing={(text) => {this.refs.body.focus()}}
+				value={params.note_title}
 				/>
 			<TextInput
 				ref="body"
 				multiline={true}
 				placeholder="Start typing"
 				style={styles.body}
+				value={params.note_body}
 			/>
 		  </View>
 		);

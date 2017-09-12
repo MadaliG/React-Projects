@@ -26,10 +26,12 @@ export default class NoteList extends Component {
          }
       ]
    }
+   
    alertItemName = (item) => {
       alert(item.title)
    }
    render() {
+   const {navigate} = this.props.navigation; 
       return (
          <View> 
             {
@@ -37,7 +39,7 @@ export default class NoteList extends Component {
                   <TouchableOpacity
                      key = {item.id}
                      style = {styles.container}
-                     onPress = {() => this.alertItemName(item)}>
+                     onPress={()=> navigate('Note', { note_title: item.title, note_body: item.note_body })}>
                      
                      <Text style = {styles.text}>
                         {item.title}
