@@ -32,6 +32,8 @@ export default class NoteList extends Component {
    }
    render() {
    const {navigate} = this.props.navigation; 
+	console.log('PROPS');
+	console.log(this.props.navigation);
       return (
          <View> 
             {
@@ -40,8 +42,12 @@ export default class NoteList extends Component {
                      key = {item.id}
                      style = {styles.container}
                      onPress={()=> navigate('Note', { note_title: item.title, note_body: item.note_body })}>
-                     
-                     <Text style = {styles.text}>
+
+                     <Text 
+					 style = {styles.text}
+					 //passing callbacks when updated notes
+					//onChangeNote={ (note) => alert('Note has changed!')}
+					 >
                         {item.title}
                      </Text>
 					 <View style = {styles.hr}></View>

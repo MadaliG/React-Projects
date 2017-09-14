@@ -16,10 +16,22 @@ export default class NoteScreen extends React.Component {
 		this.state = {
 		note_data: this.props.navigation.state.params
 		}
+	};
+	
+	
+	
+	//update notes
+	updateNote(title, body){
+		var note = Object.assign(this.state.note_data, {note_title:title, note_body:body});
+		//this.props.onChangeNote(note);
+		this.setState(note);
 	}
 
 	  render() {
-		const { params } = this.props.navigation.state;
+		const { params } = this.props.navigation.state
+		
+		
+		
 		return (
 		<View style={styles.note_container}>
 			<Text>{params.note_title} will help you create a note</Text>
@@ -29,7 +41,7 @@ export default class NoteScreen extends React.Component {
 				style={styles.title}
 				onEndEditing={(text) => {this.refs.body.focus()}}
 				value={this.state.note_data.note_title}
-				onChangeText={(note_title) => {this.setState({note_title})}}
+				onChangeText={(note_title) => this.updateNote(note_title, this.state.note_data.note_body)}
 				/>
 			<TextInput
 				ref="body"
@@ -37,7 +49,7 @@ export default class NoteScreen extends React.Component {
 				placeholder="Start typing"
 				style={styles.body}
 				value={this.state.note_data.note_body}
-				onChangeText={(note_body) => {this.setState({note_body})}}
+				onChangeText={(note_body) => this.updateNote( this.state.note_data.note_title, note_body)}
 			/>
 		  </View>
 		);
