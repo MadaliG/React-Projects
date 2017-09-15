@@ -3,8 +3,11 @@ import {
   Text,
   View,
   TextInput,
+  Button,
+  TouchableOpacity,
   StyleSheet
 } from 'react-native';
+import { NavigationActions } from 'react-navigation'
 
 export default class NoteScreen extends React.Component {
 	 static navigationOptions = ({ navigation }) => ({
@@ -19,17 +22,29 @@ export default class NoteScreen extends React.Component {
 	};
 	
 	
-	
 	//update notes
 	updateNote(title, body){
 		var note = Object.assign(this.state.note_data, {note_title:title, note_body:body});
 		//this.props.onChangeNote(note);
+		
 		this.setState(note);
 	}
 
 	  render() {
 		const { params } = this.props.navigation.state
+		const {navigate} = this.props.navigation; 
+	/*	const setParamsAction = NavigationActions.setParams({
+		  params: { note_title:  this.state.note_data.note_title},
+		  key: "id-1505476189718-1",
+	})  */
+	
+	//	this.props.navigation.dispatch(setParamsAction)
+	
+	
 		
+		//console.log('props new');
+		//console.log(this.props.navigation);
+		//try to make a callback 
 		
 		
 		return (
@@ -51,6 +66,9 @@ export default class NoteScreen extends React.Component {
 				value={this.state.note_data.note_body}
 				onChangeText={(note_body) => this.updateNote( this.state.note_data.note_title, note_body)}
 			/>
+			<TouchableOpacity onPress={()=> navigate('Home', { note_title: this.state.note_data.note_title })}>
+				<Text style={styles.simpleButtonText}>{'Go back from this HomeScreen!'}</Text>
+			</TouchableOpacity>
 		  </View>
 		);
 	  }

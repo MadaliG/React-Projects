@@ -2,31 +2,37 @@ import React, { Component } from 'react';
 import { TouchableOpacity, ScrollView, Image, Text, StyleSheet, View } from 'react-native';
 
 export default class NoteList extends Component {
-  state = {
-      notes: [
+  
+   
+   constructor (props) {
+		super(props)
+		this.state = {
+		params: [
          {
             id: 0,
-            title: 'Ben',
+            note_title: 'Ben',
 			note_body: 'Test 1'
          },
          {
             id: 1,
-            title: 'Susan',
+            note_title: 'Susan',
 			note_body: 'Test 2'
          },
          {
             id: 2,
-            title: 'Robert',
+            note_title: 'Robert',
 			note_body: 'Test 3'
          },
          {
             id: 3,
-            title: 'Mary',
+            note_title: 'Mary',
 			note_body: 'Test 4'
          }
       ]
-   }
+		}
+	};
    
+
    alertItemName = (item) => {
       alert(item.title)
    }
@@ -34,21 +40,25 @@ export default class NoteList extends Component {
    const {navigate} = this.props.navigation; 
 	console.log('PROPS');
 	console.log(this.props.navigation);
+	var title;
+	if(this.props.navigation.state.params){
+		title = this.props.navigation.state.params.note_title;
+	} else {
+		//TODO: who is item? the default value should have an index
+		title = this.state.params.note_title;
+	}
+
       return (
          <View> 
             {
-               this.state.notes.map((item, index) => (
+               this.state.params.map((item, index) => (
                   <TouchableOpacity
                      key = {item.id}
                      style = {styles.container}
-                     onPress={()=> navigate('Note', { note_title: item.title, note_body: item.note_body })}>
+                     onPress={()=> navigate('Note', { note_title: item.note_title, note_body: item.note_body })}>
 
-                     <Text 
-					 style = {styles.text}
-					 //passing callbacks when updated notes
-					//onChangeNote={ (note) => alert('Note has changed!')}
-					 >
-                        {item.title}
+					  <Text style = {styles.text}>
+						  {title}
                      </Text>
 					 <View style = {styles.hr}></View>
                   </TouchableOpacity>

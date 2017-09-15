@@ -14,6 +14,8 @@ export default class HomeScreen extends React.Component {
   }));
     
   render() {
+  console.log('proPRIETATI');
+  console.log(this.props.navigation.state);
   return (
 	<View>
 		<NoteList 
