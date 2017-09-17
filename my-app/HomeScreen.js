@@ -19,7 +19,9 @@ export default class HomeScreen extends React.Component {
   return (
 	<View>
 		<NoteList 
-		navigation={this.props.navigation} 
+		navigation={this.props.navigation}
+        notes={[{note_title:"Note 1", note_body:"body", id:0},
+            {note_title:"Note 2", note_body:"body", id:1}]}
 		/>
 		<View style={styles.container}>
 		<Text>Hello, Notes App!</Text>

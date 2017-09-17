@@ -25,8 +25,6 @@ export default class NoteScreen extends React.Component {
 	//update notes
 	updateNote(title, body){
 		var note = Object.assign(this.state.note_data, {note_title:title, note_body:body});
-		//this.props.onChangeNote(note);
-		
 		this.setState(note);
 	}
 
@@ -66,8 +64,8 @@ export default class NoteScreen extends React.Component {
 				value={this.state.note_data.note_body}
 				onChangeText={(note_body) => this.updateNote( this.state.note_data.note_title, note_body)}
 			/>
-			<TouchableOpacity onPress={()=> navigate('Home', { note_title: this.state.note_data.note_title })}>
-				<Text style={styles.simpleButtonText}>{'Go back from this HomeScreen!'}</Text>
+			<TouchableOpacity onPress={()=> navigate('Home', { note_title: this.state.note_data.note_title, note_body: this.state.note_data.note_body, note_id: this.state.note_data.note_id })}>
+				<Text style={styles.simpleButtonText}>{'Go back to HomeScreen!'}</Text>
 			</TouchableOpacity>
 		  </View>
 		);
