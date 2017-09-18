@@ -47,6 +47,11 @@ export default class NoteList extends Component {
 		//TODO: who is item? the default value should have an index
 		title = this.state.params.note_title;
 	}
+	
+	/*updateTitle(id){
+		console.log('id: ' + id);
+		return id
+	}*/
 
       return (
          <View> 
@@ -58,7 +63,7 @@ export default class NoteList extends Component {
                      onPress={()=> navigate('Note', { note_title: item.note_title, note_body: item.note_body })}>
 
 					  <Text style = {styles.text}>
-						  {title}
+						  {item.id}
                      </Text>
 					 <View style = {styles.hr}></View>
                   </TouchableOpacity>
