@@ -7,28 +7,7 @@ export default class NoteList extends Component {
    constructor (props) {
 		super(props)
 		this.state = {
-		note_data: this.props.notes
-            /* [{
-            id: 0,
-            note_title: 'Ben',
-			note_body: 'Test 1'
-         },
-         {
-            id: 1,
-            note_title: 'Susan',
-			note_body: 'Test 2'
-         },
-         {
-            id: 2,
-            note_title: 'Robert',
-			note_body: 'Test 3'
-         },
-         {
-            id: 3,
-            note_title: 'Mary',
-			note_body: 'Test 4'
-         }
-      ]  */
+		note_data: this.props.notes,
 		}
 
        if(this.props.navigation.state.params) {
@@ -62,11 +41,7 @@ export default class NoteList extends Component {
 	console.log('notes ');
 	console.log(this.props.notes);
 
-		/*title = this.props.navigation.state.params.note_title;
-	} else {
-		//TODO: who is item? the default value should have an index
-		title = this.state.params.note_title;
-	}*/
+
 
       return (
          <View> 

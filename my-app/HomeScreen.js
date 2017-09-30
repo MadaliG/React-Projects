@@ -2,7 +2,6 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Button,
   Text,
 } from 'react-native';
 import SimpleButton from './SimpleButton';
