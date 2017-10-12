@@ -1,3 +1,6 @@
+window.print = function (data) {
+    console.log(data);
+}
 import React from 'react';
 import ChatScreen from './ChatScreen';
 import HomeScreen from './HomeScreen';
